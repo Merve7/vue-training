@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <div class="row">
+    <span>1</span>
+    <span>+</span>
+    <span>1</span>
+    <span>=</span>
+    <span>2</span>
+  </div>
+  <div class="row second">
+    <p>My favorite library is PrimeNG</p>
+  </div>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        num1: 0,
+        num2: 0,
+        name: ''
+      }
+    }
+  })
+</script>
+</body>
+</html>

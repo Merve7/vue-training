@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    #app {
+      margin: 60px auto;
+      display: table;
+      font-size: 60px;
+    }
+    #app input {
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <input type="number" v-model.number="counter"></input>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data () {
+      return {
+        counter: 0
+      }
+    },
+    watch: {
+      counter() {
+        console.log('The counter has changed!')
+      }
+    }
+  });
+</script>
+</body>
+</html>

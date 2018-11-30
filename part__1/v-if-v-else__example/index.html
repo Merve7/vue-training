@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h3>What is your favorite component library?</h3>
+  <textarea v-model="library"></textarea>
+
+  <br>
+  <button type="submit" v-show="library">Let us know!</button>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        library: ''
+      }
+    }
+  })
+</script>
+</body>
+</html>

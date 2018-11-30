@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    .active {
+      background-color: #a00;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h3>What is your favorite UI Component Library?</h3>
+  <textarea v-model="library"></textarea>
+
+  <br>
+  <button :class="[library ? activeClass : '']" :style="{color: library ? '#fff' : '' }">Let us know!</button>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        library: '',
+        activeClass: 'active'
+      }
+    }
+  })
+</script>
+</body>
+</html>

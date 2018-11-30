@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    #app {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    #app .row {
+      width: 300px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    button {
+      border-radius: 3px;
+      font-size: 16px;
+      padding: 8px 15px;
+      border: none;
+      background: #ddd;
+      outline: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="row">
+    <h3>Data as an object</h3>
+    <count1></count1>
+    <count1></count1>
+    <count1></count1>
+  </div>
+
+  <div class="row">
+    <h3>Data as a function</h3>
+    <count2></count2>
+    <count2></count2>
+    <count2></count2>
+  </div>
+</div>
+
+<script type="text/x-template" id="count">
+  <button @click="counter += 1">{{ counter }}</button>
+</script>
+<script type="text/javascript">
+  var data = { counter: 0 }
+
+  Vue.component('count1', {
+    template: '#count',
+    data() {
+      return data
+    }
+  })
+
+  Vue.component('count2', {
+    template: '#count',
+    data() {
+      return {
+        counter: 0
+      }
+    }
+  })
+
+  new Vue({
+    el: '#app'
+  })
+</script>
+</body>
+</html>

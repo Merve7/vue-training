@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h3>Type here:</h3>
+  <textarea v-model="message" class="message" rows="5" maxlength="72"></textarea>
+  <br>
+  <p class="booktext">{{ message }} </p>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        message: `I'm not fan of vue.js`
+      }
+    }
+  });
+</script>
+</body>
+</html>

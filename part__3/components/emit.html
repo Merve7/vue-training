@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    #app {
+      width: 100vw;
+      height: 100vh;
+      padding: 15vmin;
+      font-size: 30px;
+      transition: 0.2s background-color ease;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <child :text="message" @changetext="message = $event"></child>
+  <pre>{{ $data }}</pre>
+
+  Here it is! {{ checked }}
+  <base-checkbox v-model="checked" @change="checked = $event"/>
+</div>
+
+<script type="text/x-template" id="child">
+  <div>
+    <p>{{ text }}</p>
+    <button @click="talkToMe">Let's talk</button>
+  </div>
+</script>
+
+<script type="text/x-template" id="checkboxChild">
+  <div>
+    <label for="checkit">Check this box</label>
+    <input
+        id="checkit"
+        type="checkbox"
+        :checked="checked"
+        @change="$emit('change', $event.target.checked)"
+    />
+  </div>
+</script>
+
+
+<script type="text/javascript">
+  Vue.component('child', {
+    props: ['text'],
+    template: '#child',
+    methods: {
+      talkToMe() {
+        this.$emit('changetext', 'forget introductions, I want a taco')
+      }
+    }
+  });
+
+  Vue.component('base-checkbox', {
+    model: {
+      prop: 'checked',
+      event: 'change'
+    },
+    props: {
+      checked: Boolean
+    },
+    template: '#checkboxChild'
+  })
+
+  new Vue({
+    el: "#app",
+    data() {
+      return {
+        message: 'hello mr. magoo',
+        checked: false,
+      }
+    }
+  });
+</script>
+</body>
+</html>

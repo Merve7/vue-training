@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    #app {
+      width: 100vw;
+      height: 100vh;
+      padding: 15vmin;
+      font-size: 30px;
+      transition: 0.2s background-color ease;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <child></child>
+  <child-with-props :text="message"></child-with-props>
+  <child-with-props-type :text="message"></child-with-props-type>
+</div>
+<script type="text/javascript">
+  Vue.component('child', {
+    template: `<div>hello mr. magoo</div>`
+  });
+
+
+  Vue.component('childWithProps', {
+    props: ['text'],
+    template: `<div>{{ text }}</div>`
+  });
+
+  Vue.component('childWithPropsType', {
+    props: {
+      text: {
+        type: Boolean,
+        required: true
+      }
+    },
+    template: `<div>{{ text }}</div>`
+  });
+
+  new Vue({
+    el: "#app",
+    data() {
+      return {
+        message: 'hello mr. magoo'
+      }
+    }
+  });
+</script>
+</body>
+</html>

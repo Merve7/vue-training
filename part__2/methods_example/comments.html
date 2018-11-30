@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    #app {
+      width: 100vw;
+      height: 100vh;
+      padding: 15vmin;
+      font-size: 30px;
+      transition: 0.2s background-color ease;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <div class="main-info">
+    <span class="name">Çağatay Çivici</span>
+    <h3>"I love Antalya"</h3>
+  </div>
+  <hr>
+  <ul>
+    <li v-for="comment in comments">
+      {{ comment }}
+    </li>
+  </ul>
+  <input
+      v-model="newComment"
+      @keyup.enter="addComment"
+      placeholder="Add a comment"
+  >
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data: {
+      newComment: '',
+      comments: [
+        'Looks great Cagatay!',
+        'I love the PrimeVue',
+        'Where are you at?'
+      ]
+    },
+    methods: {
+      addComment: function () {
+        this.comments.push(this.newComment)
+        this.newComment = ''
+      }
+    }
+  });
+</script>
+</body>
+</html>

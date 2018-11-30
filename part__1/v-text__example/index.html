@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <h3>What is your favorite component library?</h3>
+  <p v-text="library"></p>
+  <p>{{ library }}</p>
+  <p><input v-model="library" /></p>
+</div>
+<script type="text/javascript">
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        library: 'I like PrimeNG'
+      }
+    }
+  })
+</script>
+</body>
+</html>

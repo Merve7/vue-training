@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <style>
+    #app {
+      width: 100vw;
+      height: 100vh;
+      padding: 15vmin;
+      font-size: 30px;
+      transition: 0.2s background-color ease;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <child :text="message"></child>
+</div>
+
+<script type="text/x-template" id="child">
+  <div>
+    <p>{{ text }}</p>
+    <button @click="talkToMe">Let's talk</button>
+  </div>
+</script>
+<script type="text/javascript">
+  Vue.component('child', {
+    props: ['text'],
+    template: '#child',
+    methods: {
+      talkToMe() {
+        this.text = 'forget introductions, I want a taco'
+      }
+    }
+  });
+
+  new Vue({
+    el: "#app",
+    data() {
+      return {
+        message: 'hello mr. magoo'
+      }
+    }
+  });
+</script>
+</body>
+</html>
